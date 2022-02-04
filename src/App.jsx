@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import PrivateRoute from "./components/ProtectedRoute/PrivateRoute";
 import BrandPage from "./pages/BrandPage"
 import AdminDashboard from "./pages/AdminDashboard"
+import CategoryList from '../src/components/categoryList'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 			<NavMain />
 			<Routes>
 				<Route path="/" element={<Home />} />
+				<Route path="/categories" element={<CategoryList />} />
 				<Route path="/about-us" element={<BrandPage />} />
 				<Route path="/adminDashboard" element={<AdminDashboard />} />
 				<Route path="/signin" element={<Signin />} />
