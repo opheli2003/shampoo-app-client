@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import NavMain from "./Nav/NavMain";
 
-const CategorySecs= () => {
+const CategoryMixtes = () => {
   return (
     
       <div>
@@ -16,4 +16,5 @@ const CategorySecs= () => {
   );
 };
 
-export default CategorySecs;
+export default CategoryMixtes;
+
