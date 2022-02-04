@@ -4,15 +4,13 @@ import NavMain from "./Nav/NavMain";
 
 const CategoryGras = () => {
   return (
-    
-      <div>
-      <NavMain/>
+    <div>
+      <NavMain />
 
-        <Link to="/">
-          <i class="fas fa-home"></i>
-        </Link>
-      </div>
-    
+      <Link to="/">
+        <i className="fas fa-home"></i>
+      </Link>
+    </div>
   );
 };
 

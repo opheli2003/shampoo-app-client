@@ -1,19 +1,19 @@
 import React from "react";
-import categoryModel from "../../../../server/shampoo-app-server/models/category-model";
-import category from '../components/categoryList'
-import axios from 'axios'
+import CategoryList from "../components/categoryList";
+import axios from "axios";
+import NavMain from "../components/Nav/NavMain";
+
 
 const Home = () => {
-	return (
-		<div>
+  return (
+    <div>
+      <NavMain />
 
-		<NavMain/>
+      <CategoryList />
 
-<categoryList/>
-		
-			<h1>Welcome 🏡</h1>
-		</div>
-	);
+      <h1>Welcome 🏡</h1>
+    </div>
+  );
 };
 
 export default Home;

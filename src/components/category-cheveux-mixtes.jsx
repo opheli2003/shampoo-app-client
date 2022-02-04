@@ -4,17 +4,14 @@ import NavMain from "./Nav/NavMain";
 
 const CategoryMixtes = () => {
   return (
-    
-      <div>
-      <NavMain/>
+    <div>
+      <NavMain />
 
-        <Link to="/">
-          <i class="fas fa-home"></i>
-        </Link>
-      </div>
-    
+      <Link to="/">
+        <i className="fas fa-home"></i>
+      </Link>
+    </div>
   );
 };
 
 export default CategoryMixtes;
-
