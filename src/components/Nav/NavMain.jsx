@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+import React from 'react'
+import { Link } from "react-router-dom";
 import useAuth from "../../auth/useAuth";
 import "../../styles/NavMain.css";
 
@@ -9,6 +11,10 @@ const NavMain = () => {
 			<NavLink className="logo" to="/">
 				App name
 			</NavLink>
+			<Link to='/about-us'>About us</Link>
+			<Link to='/admindashboard'>Admin dashboard</Link>
+
+
 			{isLoggedIn && (
 				<>
 					<NavLink to="/profile">{currentUser && currentUser.email}</NavLink>
@@ -26,3 +32,6 @@ const NavMain = () => {
 };
 
 export default NavMain;
+
+
+ 
