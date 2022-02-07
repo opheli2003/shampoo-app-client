@@ -1,17 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import NavMain from "./Nav/NavMain";
+import { Link, useParams } from "react-router-dom";
 import APIHandler from "../api/apiHandler";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
 
-const CategoryList = () => {
+const OneProduct = () => {
   // make a state variable for categories
-  const [category, setCategory] = useState([]);
+  const [oneProduct, setOneProduct] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const { id } = useParams()
 
   useEffect(() => {
     const x = async () => {
@@ -19,9 +18,10 @@ const CategoryList = () => {
       /// get all categories from backend with apiHandler
       /// change the state with the newly retrieved categories
       try {
-        const response = await APIHandler.get("/api/categories");
+        const response = await APIHandler.get(`/api/products/${id}`); 
+        console.log(response)
         setLoading(false);
-        setCategory(response.data);
+        setOneProduct(response.data);
       } catch (err) {
         setError(err.message);
         setLoading(false);
@@ -30,25 +30,26 @@ const CategoryList = () => {
     x();
   }, []);
   return (
-    <>
-      {loading ? (
-        <LoadingMess />
-      ) : error ? (
+      <p>{oneProduct.productName}</p>
+    
+    // <div>
+
+    //   {loading ? (
+    //     <LoadingMess />
+    //   ) : error ? (
         
-        <ErrorMess />
-      ) : (
-        <div>
-          {category.map((cat) => {
-            return (
-              <div key={cat._id}>
-                <Link to={cat._id}>{cat.category}</Link>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </>
+    //     <ErrorMess />
+    //   ) : {oneProduct}
+             
+            
+          
+        
+    //   </div>
+  
+
+      
+
   );
 };
 
-export default CategoryList;
+export default OneProduct

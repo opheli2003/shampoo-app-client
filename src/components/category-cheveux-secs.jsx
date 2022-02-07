@@ -5,7 +5,7 @@ import NavMain from "./Nav/NavMain";
 const CategorySecs = () => {
   return (
     <div>
-      <NavMain />
+      
 
       <Link to="/">
         <i className="fas fa-home"></i>

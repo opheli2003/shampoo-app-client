@@ -6,7 +6,7 @@ import NavMain from "./Nav/NavMain";
 const CategoryNormaux = () => {
   return (
     <div>
-      <NavMain />
+      
       <Link to="/">
         <i className="fas fa-home"></i>
       </Link>

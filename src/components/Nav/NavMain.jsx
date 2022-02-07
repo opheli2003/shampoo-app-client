@@ -9,7 +9,7 @@ const NavMain = () => {
   return (
     <nav className="NavMain">
       <NavLink className="logo" to="/">
-        App name
+        E-shampoo
       </NavLink>
       <Link to="/about-us">About us</Link>
       <Link to="/admindashboard">Admin dashboard</Link>

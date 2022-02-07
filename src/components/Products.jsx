@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import NavMain from "./Nav/NavMain";
 import APIHandler from "../api/apiHandler";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
 
-const CategoryList = () => {
+const Products = () => {
   // make a state variable for categories
-  const [category, setCategory] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -19,9 +18,9 @@ const CategoryList = () => {
       /// get all categories from backend with apiHandler
       /// change the state with the newly retrieved categories
       try {
-        const response = await APIHandler.get("/api/categories");
+        const response = await APIHandler.get("/api/products");
         setLoading(false);
-        setCategory(response.data);
+        setProducts(response.data);
       } catch (err) {
         setError(err.message);
         setLoading(false);
@@ -29,6 +28,11 @@ const CategoryList = () => {
     };
     x();
   }, []);
+
+// const editProduct = async (id) => {
+//   sel
+// }
+
   return (
     <>
       {loading ? (
@@ -38,10 +42,11 @@ const CategoryList = () => {
         <ErrorMess />
       ) : (
         <div>
-          {category.map((cat) => {
+          {products.map((product) => {
             return (
-              <div key={cat._id}>
-                <Link to={cat._id}>{cat.category}</Link>
+              <div key={product._id}>
+              {/* <button onClick={() = > editProduct(product._id)}>Edit</button> */}
+                <Link to={product._id}>{product.productName}</Link>
               </div>
             );
           })}
@@ -51,4 +56,4 @@ const CategoryList = () => {
   );
 };
 
-export default CategoryList;
+export default Products
