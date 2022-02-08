@@ -5,6 +5,9 @@ import { useState, useEffect } from "react";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
 import CategoryList from "./categoryList";
+import CategoryGras from "./CategoryGras";
+import CategoryMixtes from "./category-mixtes";
+import CategoryNormaux from "./category-normaux";
 
 const CategorySecs = () => {
   // make a state variable for categories
@@ -56,10 +59,10 @@ const CategorySecs = () => {
         );
       })}
 
-      <p>
+      <div>
       
-        <CategoryList />
-      </p>
+
+      </div>
     </div>
   );
 

@@ -13,30 +13,31 @@ const Products = () => {
   const [error, setError] = useState(false);
   // const {id} = useParams()
 
+  const x = async () => {
+    setLoading(true);
+    /// get all categories from backend with apiHandler
+    /// change the state with the newly retrieved categories
+    try {
+      const response = await APIHandler.get("/api/products");
+      setLoading(false);
+      setProducts(response.data);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const x = async () => {
-      setLoading(true); 
-      /// get all categories from backend with apiHandler
-      /// change the state with the newly retrieved categories
-       try {
-        const response = await APIHandler.get("/api/products");
-        setLoading(false);
-        setProducts(response.data);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
     x();
-  }, []); 
+  }, []);
 
   const handleDelete = async (id) => {
     try {
       await APIHandler.delete(`/api/products/delete/${id}`);
-      const copy = products.filter((product)=>product.id !==id)
-      console.log(copy)
-      setProducts(copy)
-      x()
+      const copy = products.filter((product) => product.id !== id);
+      console.log(copy);
+      setProducts(copy);
+      x();
 
       //modifier le states produtcs en ayant retiré le produit supprimé
     } catch (err) {
@@ -66,30 +67,29 @@ const Products = () => {
 };
 
 export default Products;
-const editProduct = async (id) => {
-Sel}
+// const editProduct = async (id) => {
+// Sel}
 
-return (
-    <>
-      {loading ? (
-        <LoadingMess />
-      ) : error ? (
-        
-        <ErrorMess />
-      ) : (
-        <div>
-          {products.map((product) => {
-            return (
-              <div key={product._id}>
-              <button onClick={() => editProduct(product._id)}>Edit</button> 
-               <Link to={product._id}>{product.productName}</Link>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </>
-  );
-};
+// return (
+//     <>
+//       {loading ? (
+//         <LoadingMess />
+//       ) : error ? (
 
-export default Products
+//         <ErrorMess />
+//       ) : (
+//         <div>
+//           {products.map((product) => {
+//             return (
+//               <div key={product._id}>
+//               <button onClick={() => editProduct(product._id)}>Edit</button>
+//                <Link to={product._id}>{product.productName}</Link>
+//               </div>
+//             );
+//           })}
+//         </div>
+//       )}
+//     </>
+//   );
+
+// export default Products

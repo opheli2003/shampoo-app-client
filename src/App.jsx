@@ -15,13 +15,17 @@ import UpdateProduct from "./pages/UpdateProduct";
 import CategorySecs from "./components/category-secs";
 import CategoryNormaux from "./components/category-normaux";
 import CategoryMixtes from "./components/category-mixtes";
+import OneProdCatGras from "./components/OneProdCatGras";
+import OneProdCatSecs from "./components/OneProdCatSecs";
+import OneProdCatnormaux from "./components/OneProdCatNormaux";
+import OneProdCatmixtes from "./components/OneProdCatMixtes";
 // import BrandPage from "./pages/BrandPage"
 
 
 function App() {
   return (
     <div className="App">
-    <Home/>
+    {/* <Home/> */}
       <NavMain />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -32,9 +36,18 @@ function App() {
 
         <Route path="/categories" element={<CategoryList />} />
 		<Route path="/categories/cheveux-gras" element={<CategoryGras />} />
+
+		<Route path="/categories/cheveux-gras/:id" element={<OneProdCatGras />} />
+  
     <Route path="/categories/cheveux-secs" element={<CategorySecs />} />
+    <Route path="/categories/cheveux-secs/:id" element={<OneProdCatSecs />} />
+
     <Route path="/categories/cheveux-normaux" element={<CategoryNormaux />} />
+    <Route path="/categories/cheveux-normaux/:id" element={<OneProdCatnormaux />} />
+
     <Route path="/categories/cheveux-mixtes" element={<CategoryMixtes />} />
+    <Route path="/categories/cheveux-mixtes/:id" element={<OneProdCatmixtes />} />
+
         {/* <Route path="/about-us" element={<BrandPage />} /> */}
         {/* <Route path="/adminDashboard" element={<AdminDashboard />} /> */}
         <Route path="/signin" element={<Signin />} />
