@@ -14,10 +14,10 @@ const Products = () => {
 
   useEffect(() => {
     const x = async () => {
-      setLoading(true);
+      setLoading(true); 
       /// get all categories from backend with apiHandler
       /// change the state with the newly retrieved categories
-      try {
+       try {
         const response = await APIHandler.get("/api/products");
         setLoading(false);
         setProducts(response.data);
@@ -27,13 +27,12 @@ const Products = () => {
       }
     };
     x();
-  }, []);
+  }, []); 
 
-// const editProduct = async (id) => {
-//   sel
-// }
+const editProduct = async (id) => {
+Sel}
 
-  return (
+return (
     <>
       {loading ? (
         <LoadingMess />
@@ -45,8 +44,8 @@ const Products = () => {
           {products.map((product) => {
             return (
               <div key={product._id}>
-              {/* <button onClick={() = > editProduct(product._id)}>Edit</button> */}
-                <Link to={product._id}>{product.productName}</Link>
+              <button onClick={() => editProduct(product._id)}>Edit</button> 
+               <Link to={product._id}>{product.productName}</Link>
               </div>
             );
           })}

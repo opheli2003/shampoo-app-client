@@ -1,16 +1,22 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import APIHandler from "../api/apiHandler";
+import apiHandler from "../api/apiHandler";
 import { useState, useEffect } from "react";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
+import CategoryList from "./categoryList";
+
 
 const OneProduct = () => {
   // make a state variable for categories
   const [oneProduct, setOneProduct] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const { id } = useParams()
+  const { id } = useParams();
+  const [productName, setProductName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const x = async () => {
@@ -18,10 +24,15 @@ const OneProduct = () => {
       /// get all categories from backend with apiHandler
       /// change the state with the newly retrieved categories
       try {
-        const response = await APIHandler.get(`/api/products/${id}`); 
-        console.log(response)
+        const response = await apiHandler.get("/api/products/:id");
+        setProducts(response.data);
+        setProductName(() => response.data.productName);
+        setDescription(() => response.data.description);
+        setPrice(() => response.data.price);
+
         setLoading(false);
         setOneProduct(response.data);
+        console.log(response.data);
       } catch (err) {
         setError(err.message);
         setLoading(false);
@@ -29,27 +40,38 @@ const OneProduct = () => {
     };
     x();
   }, []);
+  console.log(products);
+
   return (
-      <p>{oneProduct.productName}</p>
-    
-    // <div>
+    <div>
+      {products.map((product) => {
+        return (
+          <div>
+            <p>{product.productName} </p>
 
-    //   {loading ? (
-    //     <LoadingMess />
-    //   ) : error ? (
-        
-    //     <ErrorMess />
-    //   ) : {oneProduct}
-             
-            
-          
-        
-    //   </div>
-  
+            <Link to={product._id} product={product}>
+              {" "}
+              {product.image}{" "}
+            </Link>
+            <p>{product.price} </p>
+          </div>
+        );
+      })}
 
-      
+      <p> <CategoryList /></p>
 
+    </div>
   );
-};
 
-export default OneProduct
+  // <div>
+
+  //   {loading ? (
+  //     <LoadingMess />
+  //   ) : error ? (
+
+  //     <ErrorMess />
+  //   ) : {oneProduct}
+
+  //   </div>
+};
+export default OneProduct;

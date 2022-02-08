@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import NavMain from "./Nav/NavMain";
 import APIHandler from "../api/apiHandler";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
 
@@ -29,6 +27,7 @@ const CategoryList = () => {
     };
     x();
   }, []);
+  
   return (
     <>
       {loading ? (
@@ -41,7 +40,8 @@ const CategoryList = () => {
           {category.map((cat) => {
             return (
               <div key={cat._id}>
-                <Link to={cat._id}>{cat.category}</Link>
+               {cat.image}
+                <Link to={`cheveux-${cat.category}`}>{cat.category}</Link>
               </div>
             );
           })}
