@@ -41,7 +41,7 @@ const CategoryList = () => {
             return (
               <div key={cat._id}>
                {cat.image}
-                <Link to={`cheveux-${cat.category}`}>{cat.category}</Link>
+                <Link to={`/categories/cheveux-${cat.category}`}>{cat.category}</Link>
               </div>
             );
           })}

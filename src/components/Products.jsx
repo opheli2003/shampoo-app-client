@@ -63,33 +63,6 @@ const Products = () => {
       })}
     </div>
   );
-};
-
-export default Products;
-const editProduct = async (id) => {
-Sel}
-
-return (
-    <>
-      {loading ? (
-        <LoadingMess />
-      ) : error ? (
-        
-        <ErrorMess />
-      ) : (
-        <div>
-          {products.map((product) => {
-            return (
-              <div key={product._id}>
-              <button onClick={() => editProduct(product._id)}>Edit</button> 
-               <Link to={product._id}>{product.productName}</Link>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </>
-  );
-};
+    }
 
 export default Products
