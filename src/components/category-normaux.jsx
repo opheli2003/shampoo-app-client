@@ -6,14 +6,15 @@ import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
 import CategoryList from "./categoryList";
 
-const CategoryGras = () => {
+
+const CategoryNormaux = () => {
   // make a state variable for categories
-  const [categoryGras, setCategoryGras] = useState([]);
+  const [categoryNormaux, setCategoryNormaux] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const { id } = useParams();
   const [productName, setProductName] = useState("");
-  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
   const [products, setProducts] = useState([]);
 
@@ -23,14 +24,14 @@ const CategoryGras = () => {
       /// get all categories from backend with apiHandler
       /// change the state with the newly retrieved categories
       try {
-        const response = await APIHandler.get("/api/categories/cheveux-gras");
+        const response = await APIHandler.get("/api/categories/cheveux-normaux");
         setProducts(response.data);
         setProductName(() => response.data.productName);
-        setDescription(() => response.data.description);
+        setImage(() => response.data.image);
         setPrice(() => response.data.price);
 
         setLoading(false);
-        setCategoryGras(response.data);
+        setCategoryNormaux(response.data);
         console.log(response.data);
       } catch (err) {
         setError(err.message);
@@ -46,17 +47,16 @@ const CategoryGras = () => {
       {products.map((product) => {
         return (
           <div>
-
             <Link to={product._id} product={product}>
-              {" "} {product.productName} 
-              <img src="{product.image}" alt="{product}" />                  </Link>
-            <p>{product.price} </p>
+              {" "}{product.productName} 
+              <img src={product.image} alt={product.productName} />                  
 
-      </div>
+              </Link>
+            <p> {product.price} </p>
+          </div>
         );
       })}
       <p> <CategoryList /></p>
-
     </div>
   );
 
@@ -71,4 +71,4 @@ const CategoryGras = () => {
 
   //   </div>
 };
-export default CategoryGras;
+export default CategoryNormaux;
