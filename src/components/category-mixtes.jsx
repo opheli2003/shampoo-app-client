@@ -4,7 +4,7 @@ import APIHandler from "../api/apiHandler";
 import { useState, useEffect } from "react";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
-import CategoryList from './categoryList'
+import CategoryList from "./categoryList";
 
 const CategoryMixtes = () => {
   // make a state variable for categories
@@ -45,21 +45,22 @@ const CategoryMixtes = () => {
     <div>
       {products.map((product) => {
         return (
-          <div>
+          <div key={product._id}>
             <Link to={product._id} product={product}>
-            {product.productName} 
-            
- <img src="{product.image}" alt="{product}" />            
-            </Link>
+              {product.productName}
 
+              <img src={product.image} alt={product} />
+            </Link>
 
             <p>{product.price} </p>
           </div>
         );
       })}
 
-            <p> <CategoryList /></p>
-
+      <p>
+        {" "}
+        <CategoryList />
+      </p>
     </div>
   );
 

@@ -46,7 +46,7 @@ const CategoryNormaux = () => {
     <div>
       {products.map((product) => {
         return (
-          <div>
+          <div key= {product._id}>
             <Link to={product._id} product={product}>
               {" "}{product.productName} 
               <img src={product.image} alt={product.productName} />                  
