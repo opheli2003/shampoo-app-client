@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import APIHandler from "../api/apiHandler";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useParams } from "react";
 import axios from "axios";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
@@ -11,6 +11,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  // const {id} = useParams()
 
   useEffect(() => {
     const x = async () => {
@@ -29,31 +30,39 @@ const Products = () => {
     x();
   }, []);
 
-// const editProduct = async (id) => {
-//   sel
-// }
+  const handleDelete = async (id) => {
+    try {
+      await APIHandler.delete(`/api/products/delete/${id}`);
+      const copy = products.filter((product)=>product.id !==id)
+      console.log(copy)
+      setProducts(copy)
+      x()
 
-  return (
-    <>
-      {loading ? (
-        <LoadingMess />
-      ) : error ? (
-        
-        <ErrorMess />
-      ) : (
-        <div>
-          {products.map((product) => {
-            return (
-              <div key={product._id}>
-              {/* <button onClick={() = > editProduct(product._id)}>Edit</button> */}
-                <Link to={product._id}>{product.productName}</Link>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </>
+      //modifier le states produtcs en ayant retiré le produit supprimé
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  return loading ? (
+    <LoadingMess />
+  ) : error ? (
+    <ErrorMess />
+  ) : (
+    <div>
+      {products.map((product) => {
+        return (
+          <div key={product._id}>
+            {/* <button onClick={() = > editProduct(product._id)}>Edit</button> */}
+            <Link to={product._id}>{product.productName}</Link>
+            <button onClick={() => handleDelete(product._id)}>
+              Delete shampoo
+            </button>
+          </div>
+        );
+      })}
+    </div>
   );
 };
 
-export default Products
+export default Products;

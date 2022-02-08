@@ -18,6 +18,7 @@ import CategoryList from "../src/components/categoryList";
 function App() {
   return (
     <div className="App">
+    <Home/>
       <NavMain />
 	  {/* <CategoryList /> */}
       <Routes>

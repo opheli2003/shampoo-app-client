@@ -7,6 +7,7 @@ const AddProduct = () => {
 	const [description, setDescription] = useState("");
 	const [price, setPrice] = useState("");
 	const [image, setImage] = useState("");
+	const [ref, setRef] = useState("");
 	const [category, setCategory] = useState("");
 	const [type, setType] = useState("");
     const [ingredients, setIngredients] = useState("");
@@ -25,6 +26,7 @@ const AddProduct = () => {
             category,
             type,
             ingredients,
+			ref
 		};
 
 		axios
@@ -71,6 +73,16 @@ const AddProduct = () => {
 						name="image"
 						value={image}
 						onChange={(evt) => setImage(evt.target.value)}
+					/>
+				</div>
+				<div>
+					<label htmlFor="ref">ref</label>
+					<input
+						type="text"
+						id="ref"
+						name="ref"
+						value={ref}
+						onChange={(evt) => setRef(evt.target.value)}
 					/>
 				</div>
 
@@ -120,7 +132,7 @@ const AddProduct = () => {
 
 
 
-	
+
 </div>
 
 
