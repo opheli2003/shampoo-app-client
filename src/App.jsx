@@ -6,7 +6,7 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import PrivateRoute from "./components/ProtectedRoute/PrivateRoute";
 import Products from "./components/Products";
-import OneProduct from "./components/OneProduct";
+// import OneProduct from "./components/OneProduct";
 import AddProduct from "./pages/AddProduct";
 import CategoryGras from "./components/CategoryGras";
 import NotFound from "./components/NotFound"
@@ -31,10 +31,10 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Home />} />
-		<Route path="/products" element={<Products />} />
+		<Route path="/products" element={<Products  />} />
 		<Route path="/products/create" element={<AddProduct />} />
 
-		<Route path="proucts/:id" element={<OneProduct/>} />
+		{/* <Route path="proucts/:id" element={<OneProduct/>} /> */}
 
         <Route path="/categories" element={<CategoryList />} />
 		<Route path="/categories/cheveux-gras" element={<CategoryGras />} />
