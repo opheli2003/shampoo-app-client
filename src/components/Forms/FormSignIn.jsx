@@ -25,8 +25,11 @@ const FormSignIn = () => {
       })
       .catch((e) => {
         setError(e.response.data);
-      });
+      })
+      apiHandler
+      
   };
+
 
   return (
     <>
