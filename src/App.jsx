@@ -1,3 +1,4 @@
+import React from 'react'
 import { Routes, Route } from "react-router-dom";
 import NavMain from "./components/Nav/NavMain";
 import Home from "./pages/Home";
@@ -15,6 +16,7 @@ import UpdateProduct from "./pages/UpdateProduct";
 import CategorySecs from "./components/category-secs";
 import CategoryNormaux from "./components/category-normaux";
 import CategoryMixtes from "./components/category-mixtes";
+import Review from "./components/reviews";
 import OneProdCatGras from "./components/OneProdCatGras";
 import OneProdCatSecs from "./components/OneProdCatSecs";
 import OneProdCatnormaux from "./components/OneProdCatNormaux";
@@ -33,6 +35,7 @@ function App() {
         <Route path="/" element={<Home />} />
 		<Route path="/products" element={<Products  />} />
 		<Route path="/products/create" element={<AddProduct />} />
+		<Route path="/products/update/:id" element={<UpdateProduct/>} />
 
 		{/* <Route path="proucts/:id" element={<OneProduct/>} /> */}
 
@@ -52,12 +55,14 @@ function App() {
 
         {/* <Route path="/about-us" element={<BrandPage />} /> */}
         {/* <Route path="/adminDashboard" element={<AdminDashboard />} /> */}
+        <Route path="/product/:id" element={<Review />} />
+
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-		<Route path="/products/update/:id" element={<UpdateProduct/>} />
 
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
+
           
         </Route>
 		<Route path="*" element={<NotFound />} />

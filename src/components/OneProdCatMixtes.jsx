@@ -4,6 +4,8 @@ import apiHandler from "../api/apiHandler";
 import { useState, useEffect } from "react";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
+import Review from "./reviews";
+
 // import CategoryList from "./categoryList";
 
 const OneProdCatmixtes = () => {
@@ -51,6 +53,9 @@ const OneProdCatmixtes = () => {
 {products.image}  
 
   
+<Review/>
+
+
   </div>
             
          

@@ -4,6 +4,7 @@ import apiHandler from "../api/apiHandler";
 import { useState, useEffect } from "react";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
+import Review from "./reviews";
 
 const OneProdCatSecs = () => {
   // make a state variable for categories
@@ -49,10 +50,9 @@ const OneProdCatSecs = () => {
 {products.description}
 {products.image}  
 
-  
-  </div>
-            
-         
+<Review/>
+
+</div>    
   
   )}
 
