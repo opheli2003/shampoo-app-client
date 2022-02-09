@@ -1,3 +1,4 @@
+import React from 'react'
 import { Routes, Route } from "react-router-dom";
 import NavMain from "./components/Nav/NavMain";
 import Home from "./pages/Home";
@@ -15,14 +16,11 @@ import UpdateProduct from "./pages/UpdateProduct";
 import CategorySecs from "./components/category-secs";
 import CategoryNormaux from "./components/category-normaux";
 import CategoryMixtes from "./components/category-mixtes";
-<<<<<<< HEAD
 import Review from "./components/reviews";
-=======
 import OneProdCatGras from "./components/OneProdCatGras";
 import OneProdCatSecs from "./components/OneProdCatSecs";
 import OneProdCatnormaux from "./components/OneProdCatNormaux";
 import OneProdCatmixtes from "./components/OneProdCatMixtes";
->>>>>>> 1d1bbde2890d4a87516eb3c8cdc961ff8c05223d
 // import BrandPage from "./pages/BrandPage"
 
 
@@ -57,13 +55,14 @@ function App() {
 
         {/* <Route path="/about-us" element={<BrandPage />} /> */}
         {/* <Route path="/adminDashboard" element={<AdminDashboard />} /> */}
-        <Route path="categories/cheveux-gras/product/:id/reviews/create" element={<Review />} />
+        <Route path="/product/:id" element={<Review />} />
 
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
 
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
+
           
         </Route>
 		<Route path="*" element={<NotFound />} />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
 
 
@@ -9,7 +9,6 @@ const[reviewTitle, setReviewTitle] = useState("");
 const[review, setReview] = useState("");
 const[rating, setRating] = useState("");
 const[image, setImage] = useState("");
-const[description, setDescription] = useState("");
 const { id } = useParams();
 const [previewImage, setPreviewImage] = useState("");
 
@@ -24,25 +23,22 @@ const handleSubmit = async (evt) => {
     newData.append("review", review);
     newData.append("rating", rating);
     newData.append("image", image);
-    newData.append("description", description);
     
     try {
       const response = await apiHandler.post(
-        `/categories/cheveux-gras/product/${id}/reviews/create`,
+        `api/product/${id}/reviews`,
         newData
       );
-      setReviewTtile(response.data.reviewTitle);
+      setReviewTitle(response.data.reviewTitle);
       setReview(response.data.review);
       setRating(response.data.rating);
       setImage(response.data.image);
-      setDescription(response.data.description);
     
       console.log(response.data);
     } catch (err) {
       console.error(err);
     }
   };
-
 
 
   const handlePreviewImage = () => {
@@ -69,6 +65,7 @@ const handleSubmit = async (evt) => {
 return(
     <div> 
     <form className="form" onSubmit={handleSubmit}>
+    <h1>   REVIEW</h1>
         <div>
           <label htmlFor="">Title</label>
           <input
@@ -76,7 +73,7 @@ return(
             id="reviewTitle"
             name="reviewTitle"
             value={reviewTitle}
-            onChange={(evt) => setreviewTitle(evt.target.value)}
+            onChange={(evt) => setReviewTitle(evt.target.value)}
           />
         </div>
         <div>
