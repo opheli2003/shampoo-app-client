@@ -4,10 +4,9 @@ import apiHandler from "../api/apiHandler";
 import { useState, useEffect } from "react";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
-import CategoryList from "./categoryList";
+// import CategoryList from "./categoryList";
 
-
-const OneProduct = () => {
+const OneProdCatGras = () => {
   // make a state variable for categories
   const [oneProduct, setOneProduct] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -24,7 +23,9 @@ const OneProduct = () => {
       /// get all categories from backend with apiHandler
       /// change the state with the newly retrieved categories
       try {
-        const response = await apiHandler.get("/api/products/:id");
+        const response = await apiHandler.get(
+          `/api/categories/cheveux-gras/${id}`
+        );
         setProducts(response.data);
         setProductName(() => response.data.productName);
         setDescription(() => response.data.description);
@@ -39,39 +40,21 @@ const OneProduct = () => {
       }
     };
     x();
-  }, []);
+  }, [id]);
   console.log(products);
 
-  return (
-    <div>
-      {products.map((product) => {
-        return (
-          <div>
-            <p>{product.productName} </p>
+  return(
+      <div>
+{products.productName} 
+{products.price} 
+{products.description}
+{products.image}  
 
-            <Link to={product._id} product={product}>
-              {" "}
-              {product.image}{" "}
-            </Link>
-            <p>{product.price} </p>
-          </div>
-        );
-      })}
+  
+  </div>
+            
+         
+  
+  )}
 
-      <p> <CategoryList /></p>
-
-    </div>
-  );
-
-  // <div>
-
-  //   {loading ? (
-  //     <LoadingMess />
-  //   ) : error ? (
-
-  //     <ErrorMess />
-  //   ) : {oneProduct}
-
-  //   </div>
-};
-export default OneProduct;
+export default OneProdCatGras;

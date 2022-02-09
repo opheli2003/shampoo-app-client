@@ -5,9 +5,10 @@ import CategoryList from "../components/categoryList.jsx";
 const Home = () => {
   return (
     <div>
-  <h1>Welcome 🏡</h1>
-  <CategoryList />
+    <CategoryList />
+  {/* <h1>Welcome 🏡</h1>
 
+ */}
 
     
     </div>
