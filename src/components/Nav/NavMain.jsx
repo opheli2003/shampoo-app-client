@@ -74,13 +74,15 @@ const NavMain = () => {
           <Link to="/"><Logo>E-shampoo.</Logo></Link></Left>
           {/* <Left>  <Language>FR</Language></Left> */}
             
-          <Center> <Link to="/about-us">About us</Link></Center>
+          <Center> <Link to="/categories">Nos produits</Link></Center>
+          <Center> <Link to="/about-us">Notre concept</Link></Center>
+
           
           {isLoggedIn && (
             <><RightRight>
            
               <Link to="/profile">
-                {currentUser && currentUser.email}
+               {currentUser && currentUser.name} Accédez à mon profil 
               </Link></RightRight>
               <RightRight><p onClick={removeUser}>Sign out</p></RightRight>
             </>
@@ -93,7 +95,7 @@ const NavMain = () => {
               </Right>
             </>
           )}
-        <Link to="/add-to-cart"> Panier</Link> 
+        <Link to="/add-to-cart">Panier</Link> 
         
       </Wrapper>
     </Container>

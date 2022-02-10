@@ -51,7 +51,7 @@ const CategoryList = () => {
           {category.map((cat) => {
             return (
               <Container key={cat._id}>
-              <img src="https://images.squarespace-cdn.com/content/v1/5e80aecdb4495743110f0bbb/1588858364833-SCXTGN04ULCU7NJSUJRX/Un-homme-qui-se-lave-les-cheveux-au-shampooing.jpg" alt="catgry image" />
+              <img src={category.image} alt={category.name} />
               <Title>
                
                

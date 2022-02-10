@@ -12,6 +12,8 @@ const FormCart = ({ cart, remove, added }) => {
     );
   }, [cart]);
 
+  
+
   const totalPrice = cart.reduce(
     (price, product) => price + product.quantity * product.price,
     0

@@ -9,7 +9,6 @@ const Home = () => {
   return (
     <div>
     <Announcement />
-    <NavMain />
     <Slider />
     <CategoryList />
     

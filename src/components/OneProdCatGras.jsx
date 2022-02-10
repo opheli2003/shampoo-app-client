@@ -6,8 +6,16 @@ import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
 import Review from "./reviews";
 import CategoryList from "./categoryList";
+import styled from "styled-components"
 
 // import CategoryList from "./categoryList";
+
+const Container = styled.div`
+height: 60px;
+background-color: blue;
+
+`
+
 
 const OneProdCatGras = ({ handleAddedProduct }) => {
   // make a state variable for categories
@@ -50,9 +58,9 @@ const OneProdCatGras = ({ handleAddedProduct }) => {
   console.log(products);
 
   return (
-    <div>
-      <div>
-        {products.image}
+    
+      <Container>
+       <img src={products.image} alt={products.productName} /> 
         {products.price}
         {products.productName}
         {products.description}
@@ -62,11 +70,9 @@ const OneProdCatGras = ({ handleAddedProduct }) => {
             className="prodcut-add-button"
             onClick={() => handleAddedProduct(products)}
           >
-            {" "}
-            Add to Cart{" "}
+            Add to Cart
           </button>
         </div>
-      </div>
 
       <div>
         <Review />
@@ -75,8 +81,7 @@ const OneProdCatGras = ({ handleAddedProduct }) => {
       <div>
         <CategoryList />
       </div>
-    </div>
-  );
+      </Container>  );
 };
 
 export default OneProdCatGras;
