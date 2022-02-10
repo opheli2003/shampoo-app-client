@@ -4,7 +4,6 @@ import useAuth from "../../auth/useAuth";
 import "../../styles/NavMain.css";
 import styled from "styled-components";
 
-
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 10px 20px;
@@ -77,6 +76,7 @@ const NavMain = () => {
               </Right>
             </>
           )}
+        <Link to="/add-to-cart"> Panier</Link> 
         
       </Wrapper>
     </Container>

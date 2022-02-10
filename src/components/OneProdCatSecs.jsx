@@ -5,8 +5,9 @@ import { useState, useEffect } from "react";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
 import Review from "./reviews";
+import CategoryList from "./categoryList";
 
-const OneProdCatSecs = () => {
+const OneProdCatSecs = ({handleAddedProduct}) => {
   // make a state variable for categories
   const [oneProduct, setOneProduct] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -43,17 +44,32 @@ const OneProdCatSecs = () => {
   }, [id]);
   console.log(products);
 
-  return(
+  return (
+    <div>
+      {products.image}
+      {products.price}
+      {products.productName}
+      {products.description}
+
       <div>
-{products.productName} 
-{products.price} 
-{products.description}
-{products.image}  
+        <button
+          className="prodcut-add-button"
+          onClick={() => handleAddedProduct(products)}
+        >
+          {" "}
+          Add to Cart{" "}
+        </button>
+      </div>
 
-<Review/>
+      <div>
+        <Review />
+      </div>
 
-</div>    
-  
-  )}
+      <div>
+        <CategoryList />
+      </div>
+    </div>
+  );
+};
 
 export default OneProdCatSecs;
