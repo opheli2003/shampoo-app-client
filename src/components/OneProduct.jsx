@@ -44,7 +44,7 @@ const OneProduct = () => {
           <div>
             <p>{product.productName} </p>
             <Link to={product._id} product={product}>
-              {' '}
+              
               {product.image}{''}
             </Link>
             <p>{product.price} </p>

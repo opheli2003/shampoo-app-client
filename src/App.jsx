@@ -96,8 +96,8 @@ function App() {
   return (
     <div className="App">
       {/* <Home/> */}
-
       <NavMain />
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
