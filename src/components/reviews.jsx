@@ -65,7 +65,7 @@ const handleSubmit = async (evt) => {
 return(
     <div> 
     <form className="form" onSubmit={handleSubmit}>
-    <h1>   REVIEW</h1>
+    <h1>REVIEW</h1>
         <div>
           <label htmlFor="">Title</label>
           <input
@@ -88,7 +88,7 @@ return(
         </div>
 
         <div>
-          <label htmlFor="image"> new image</label>
+          <label htmlFor="image"> Image</label>
           <input type="file" id="image" name="image" onChange={handleImage} />
         </div>
 

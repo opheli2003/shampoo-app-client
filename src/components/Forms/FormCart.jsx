@@ -1,34 +1,69 @@
-import react, {useEffect, useState} from 'react'
+import React, { useState, useEffect } from "react";
 // import useForm from "../../hooks/useForm"
-import apiHandler from "../../api/apiHandler.js"
+import apiHandler from "../../api/apiHandler.js";
 
-const FormCart = ()=>{
-    const [products, setProducts] = useState("");
-    const [ref, setRef] = useState("");
-    const [quantity, setQuantity] = useState("");
-    const [productName, setProductName] = useState("");
-    const [price, setPrice] = useState("");
-    const [address, setAddress] = useState("");
-    const [city, setCity] = useState("");
-    const [country, setCountry] = useState("");
-    const [street, setStreet] = useState("");
-    const [zipcode, setZipcode] = useState("");
+const FormCart = ({ cart, remove, added }) => {
+  console.log("FORMCART", cart);
 
-useEffect(() =>{
-    const postCart
-}
+  const [total, setTotal] = useState();
+  useEffect(() => {
+    setTotal(
+      cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
+    );
+  }, [cart]);
 
-)
+  const totalPrice = cart.reduce(
+    (price, product) => price + product.quantity * product.price,
+    0
+  );
 
+  return (
+    <div className="cart-product">
+      <div className="cart-product-header"> Cart Items </div>
 
-return (
-    <form>
+      {cart.length === 0 && <div> No items added yet </div>}
 
-    </form>
-    
+      <div>
+        {cart.map((product) => (
+          <div key={product.id} className="cart-product-list">
+            <img
+              className="cart-product-image"
+              src={product.image}
+              alt={product.productName}
+            />
+            <div className="cart-product-name">{product.productName} </div>
 
+            <div className="cart-product-price">${product.price}</div>
 
-)
-}
+            <div className="cart-product-btn">
+              <div className="cart-product-price-quantity">
+                {product.quantity} - ${product.price}
+              </div>
+              <button
+                className="cart-product-add"
+                onClick={() => {
+                  added(product);
+                }}
+              >
+                {" "}
+                +{" "}
+              </button>
+              <button
+                className="cart-product-remove"
+                onClick={() => {
+                  remove(product);
+                }}
+              >
+                {" "}
+                -{" "}
+              </button>
+              <div className="cart-product-total">Total : ${totalPrice}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default FormCart
+export default FormCart;

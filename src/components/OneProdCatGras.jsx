@@ -5,10 +5,11 @@ import { useState, useEffect } from "react";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
 import Review from "./reviews";
+import CategoryList from "./categoryList";
 
 // import CategoryList from "./categoryList";
 
-const OneProdCatGras = () => {
+const OneProdCatGras = ({ handleAddedProduct }) => {
   // make a state variable for categories
   const [oneProduct, setOneProduct] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -18,6 +19,7 @@ const OneProdCatGras = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [products, setProducts] = useState([]);
+  const [image, setImage] = useState([]);
 
   useEffect(() => {
     const x = async () => {
@@ -30,6 +32,7 @@ const OneProdCatGras = () => {
         );
         setProducts(response.data);
         setProductName(() => response.data.productName);
+        setImage(() => response.data.image);
         setDescription(() => response.data.description);
         setPrice(() => response.data.price);
 
@@ -43,23 +46,37 @@ const OneProdCatGras = () => {
     };
     x();
   }, [id]);
+
   console.log(products);
 
-  return(
+  return (
+    <div>
       <div>
-{products.productName} 
-{products.price} 
-{products.description}
-{products.image}  
+        {products.image}
+        {products.price}
+        {products.productName}
+        {products.description}
 
-  
-<Review/>
+        <div>
+          <button
+            className="prodcut-add-button"
+            onClick={() => handleAddedProduct(products)}
+          >
+            {" "}
+            Add to Cart{" "}
+          </button>
+        </div>
+      </div>
 
+      <div>
+        <Review />
+      </div>
 
-  </div>
-            
-         
-  
-  )}
+      <div>
+        <CategoryList />
+      </div>
+    </div>
+  );
+};
 
 export default OneProdCatGras;

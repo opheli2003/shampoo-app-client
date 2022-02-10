@@ -60,12 +60,19 @@ const Products = () => {
             <button onClick={() => handleDelete(product._id)}>
               Delete shampoo
             </button>
+            <Link to={`/products/update/${product._id}`}> Update a product </Link>
+
           </div>
         );
       })}
     </div>
   );
 };
+
+/*
+/cats/:id
+
+*/
 
 export default Products;
 // const editProduct = async (id) => {
