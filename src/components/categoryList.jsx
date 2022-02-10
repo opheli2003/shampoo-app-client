@@ -4,6 +4,7 @@ import APIHandler from "../api/apiHandler";
 import { useState, useEffect } from "react";
 import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
+import styled from "styled-components";
 
 const CategoryList = () => {
   // make a state variable for categories
@@ -27,6 +28,16 @@ const CategoryList = () => {
     };
     x();
   }, []);
+
+  const Container = styled.div`
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  
+  `
+
+  const Title = styled.h1`
+  `
   
   return (
     <>
@@ -36,16 +47,20 @@ const CategoryList = () => {
         
         <ErrorMess />
       ) : (
-        <div>
+        <>
           {category.map((cat) => {
             return (
-              <div key={cat._id}>
-               {cat.image}
+              <Container key={cat._id}>
+              <img src="https://images.squarespace-cdn.com/content/v1/5e80aecdb4495743110f0bbb/1588858364833-SCXTGN04ULCU7NJSUJRX/Un-homme-qui-se-lave-les-cheveux-au-shampooing.jpg" alt="catgry image" />
+              <Title>
+               
+               
                 <Link to={`/categories/cheveux-${cat.category}`}>{cat.category}</Link>
-              </div>
+                </Title>
+              </Container>
             );
           })}
-        </div>
+        </>
       )}
     </>
   );

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React, { useEffect } from "react";
+=======
+import React from 'react'
+
+>>>>>>> bea6948ef10ed21a362bc2671d464078a3401b46
 import { Routes, Route } from "react-router-dom";
 import NavMain from "./components/Nav/NavMain";
 import Home from "./pages/Home";

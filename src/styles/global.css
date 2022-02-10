@@ -18,3 +18,10 @@ a {
 ul {
 	list-style-type: none;
 }
+
+.logOut {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  
+}
