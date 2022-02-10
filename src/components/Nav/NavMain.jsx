@@ -14,9 +14,16 @@ const Wrapper = styled.div`
 
 const Left = styled.div`
   padding: 10px 20px;
-  width: 33,33%;
   text-align: center;
 `;
+
+const RightRight = styled.span`
+  padding: 10px 20px;
+  width: 20%;
+  text-align: center;
+  justify-content: space-evenly;
+`;
+
 
 const Language = styled.span`
  font-size: 14px;
@@ -25,26 +32,36 @@ const Language = styled.span`
 
 const Center = styled.div`
   padding: 10px 20px;
-  width: 33,33%;
+  width: 20%;
 
 `;
 
 const Logo = styled.h1`
 font-weight: bold;
+flex: 1;
 
 `;
 
 const Right = styled.div`
   padding: 10px 20px;
-  width: 33,33%;
-
+flex: 1;
 `;
 const Menu = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
+  justify-content: space-evenly
 
 `;
+
+// const LogOutButton = styled.div`
+
+//   font-size: 14px;
+//   cursor: pointer;
+//   margin-right: 25px;
+
+// `;
+
 
 const NavMain = () => {
   const { isLoggedIn, currentUser, removeUser } = useAuth();
@@ -61,12 +78,12 @@ const NavMain = () => {
           <Center> <Link to="/about-us">About us</Link></Center>
           
           {isLoggedIn && (
-            <><Right>
-            <Menu>
+            <><RightRight>
+           
               <Link to="/profile">
                 {currentUser && currentUser.email}
-              </Link>
-              <button onClick={removeUser}>Log-Out</button></Menu></Right>
+              </Link></RightRight>
+              <RightRight><p onClick={removeUser}>Sign out</p></RightRight>
             </>
           )}
           {!isLoggedIn && (
