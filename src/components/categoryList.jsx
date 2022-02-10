@@ -51,10 +51,8 @@ const CategoryList = () => {
           {category.map((cat) => {
             return (
               <Container key={cat._id}>
-              <img src={category.image} alt={category.name} />
-              <Title>
-               
-               
+              <img src={cat.image} alt={cat.name} />
+              <Title> 
                 <Link to={`/categories/cheveux-${cat.category}`}>{cat.category}</Link>
                 </Title>
               </Container>
