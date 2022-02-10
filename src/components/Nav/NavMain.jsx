@@ -93,7 +93,7 @@ const NavMain = () => {
               </Right>
             </>
           )}
-        <Link to="/add-to-cart"> Panier</Link> 
+          <RightRight>  <Link to="/add-to-cart"> Panier</Link> </RightRight>
         
       </Wrapper>
     </Container>
