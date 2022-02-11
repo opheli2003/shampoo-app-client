@@ -43,6 +43,9 @@ const CategoryMixtes = () => {
 
   return (
     <div>
+
+<div> Categorie Cheveux Mixtes </div>
+
       {products.map((product) => {
         return (
           <div key={product._id}>

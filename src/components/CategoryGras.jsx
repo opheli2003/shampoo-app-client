@@ -43,15 +43,15 @@ const CategoryGras = () => {
 
   return (
     <div>
+     <div> Categorie Cheveux Gras </div>
 
       {products.map((product) => {
         return (
           <div key={product._id} >
-          <div> Cheveux : {product.category}</div>
 
             <Link to={product._id} product={product}>
               {" "} {product.productName} 
-              <img src={product.image} alt={product} />                  </Link>
+              <img src={product.image} alt={product} /> </Link>
             <p>${product.price} </p>
 
       </div>

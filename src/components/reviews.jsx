@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
-
+import reviews from "../styles/reviews.css"
 
 const Review = () => {
 
@@ -63,12 +63,13 @@ const handleSubmit = async (evt) => {
 
 
 return(
-    <div> 
-    <form className="form" onSubmit={handleSubmit}>
-    <h1>REVIEW</h1>
-        <div>
-          <label htmlFor="">Title</label>
+    <div className="testimonials"> 
+    <form className="body" onSubmit={handleSubmit}>
+    <h1>Je donne mon avis</h1>
+        <div  >
+          <label htmlFor="">Titre</label>
           <input
+          className="card"
             type="text"
             id="reviewTitle"
             name="reviewTitle"
@@ -77,7 +78,7 @@ return(
           />
         </div>
         <div>
-          <label htmlFor="description">description</label>
+          <label htmlFor="description">Commentaire:</label>
           <input
             type="text"
             id="review"
@@ -99,7 +100,7 @@ return(
         )}
 
         <div>
-          <label htmlFor="rating">Rating</label>
+          <label htmlFor="rating">Note</label>
           <input
             type="Number"
             id="rating"
@@ -109,7 +110,7 @@ return(
           />
         </div>
           
-        <button>Submit a Review</button>
+        <button>Soumettre mon avis</button>
 
     </form>
     

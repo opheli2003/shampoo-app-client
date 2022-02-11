@@ -1,0 +1,23 @@
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    text-align: center
+}
+
+.product-name{
+    display: flex;
+}
+.card-img-actions {
+    position:absolute
+}
+
+card{
+    display:grid;
+}
+  
+    .review{
+
+        display:flex;
+    }
+

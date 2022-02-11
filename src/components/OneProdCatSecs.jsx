@@ -6,8 +6,9 @@ import { LoadingMess } from "./LoadingMess";
 import { ErrorMess } from "./ErrorMess";
 import Review from "./reviews";
 import CategoryList from "./categoryList";
+import OneProduct from "../styles/OneProduct.css";
 
-const OneProdCatSecs = ({handleAddedProduct}) => {
+const OneProdCatSecs = ({ handleAddedProduct }) => {
   // make a state variable for categories
   const [oneProduct, setOneProduct] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -45,27 +46,41 @@ const OneProdCatSecs = ({handleAddedProduct}) => {
   console.log(products);
 
   return (
-    <div>
-      {products.image}
-      {products.price}
-      {products.productName}
-      {products.description}
+    <div className="">
+      <div className="card">{products.productName}</div>
 
       <div>
-        <button
-          className="prodcut-add-button"
-          onClick={() => handleAddedProduct(products)}
-        >
-          {" "}
-          Add to Cart{" "}
-        </button>
+        <div>
+          <img
+            className="card-img"
+            width="200"
+            height="200"
+            src={products.image}
+            alt={products.productName}
+          />
+        </div>
+
+        <div>
+          <p> {products.description} </p>
+        </div>
+        <div>€{products.price}</div>
+
+        <div>
+          <button
+            className="prodcut-add-button"
+            onClick={() => handleAddedProduct(products)}
+          >
+            {" "}
+            Add to Cart{" "}
+          </button>
+        </div>
       </div>
-
-      <div>
+<br />
+<br />
+      <div className="card">
         <Review />
       </div>
-
-      <div>
+      <div className="category-list">
         <CategoryList />
       </div>
     </div>

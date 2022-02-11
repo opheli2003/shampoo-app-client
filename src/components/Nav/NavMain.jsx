@@ -82,7 +82,7 @@ const NavMain = () => {
             <><RightRight>
            
               <Link to="/profile">
-               {currentUser && currentUser.name} Accédez à mon profil 
+               {currentUser && currentUser.name} Accéder à mon profil
               </Link></RightRight>
               <RightRight><p onClick={removeUser}>Sign out</p></RightRight>
             </>

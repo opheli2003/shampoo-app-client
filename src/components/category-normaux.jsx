@@ -44,6 +44,8 @@ const CategoryNormaux = () => {
 
   return (
     <div>
+         <div> Categorie Cheveux normaux </div>
+
       {products.map((product) => {
         return (
           <div key= {product._id}>
