@@ -34,7 +34,11 @@ const Slide = styled.div`
 const ImgContainer = styled.div`
   flex: 1;
 `;
-const Image = styled.img``;
+const Image = styled.img`
+ max-width: 152%;
+    width: 242px;
+    height: 164px;
+`;
 
 const InfosContainer = styled.div`
   flex: 1;
@@ -63,7 +67,7 @@ const Slider = () => {
         <Slide bg="fcf1ed">
           <ImgContainer>
             <Image
-              src="https://lessavonsdejoya.com/901-large_default/shampooing-solide-stimulant.jpg"
+              src="https://res.cloudinary.com/alexaiscoding/image/upload/v1644504911/LIFESTYLE_GELDOUCHE_AMANDE_4_MOIS_8982-433352_1024x1024_2x_zeje76.png"
               alt="shpoo"
             />
           </ImgContainer>
@@ -79,7 +83,7 @@ const Slider = () => {
         <Slide bg="fbf0f4">
           <ImgContainer>
             <Image
-              src="https://lessavonsdejoya.com/900-large_default/shampooing-solide-bleu.jpg"
+              src="https://res.cloudinary.com/alexaiscoding/image/upload/v1644504910/LIFESTYLE_GELDOUCHE_FIGUE_COCO_4_MOIS_8992-481831_70x_2x_lvzrzs.png"
               alt="shpoo"
             />
           </ImgContainer>
