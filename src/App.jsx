@@ -24,6 +24,7 @@ import OneProdCatmixtes from "./components/OneProdCatMixtes";
 import FormCart from "./components/Forms/FormCart";
 import { useState } from "react";
 import AdminDashboard from "./pages/AdminDashboard"
+import BrandPage from "./pages/BrandPage"
 // import BrandPage from "./pages/BrandPage"
 
 function App() {
@@ -147,6 +148,8 @@ function App() {
         {/* <Route path="/about-us" element={<BrandPage />} /> */}
         {/* <Route path="/adminDashboard" element={<AdminDashboard />} /> */}
         <Route path="/product/:id" element={<Review />} />
+
+        <Route path="/about-us" element={<BrandPage />} />
 
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
