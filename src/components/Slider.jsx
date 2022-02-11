@@ -1,123 +1,100 @@
 import React from "react";
 import styled from "styled-components";
 
+const Container = styled.div`
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  background-color: coral;
+  position: relative;
 
-
-
-
-
-const Container=styled.div`
-
-width: 100%;
-height:100vh;
-display: flex;
-background-color: coral;
-position: relative;
-
-
-`
-
-
-const Arrow = styled.div`
-width: 50px;
-height: 50px;
-background-color: #fff7f7;
-border-radius: 50%;
-position: absolute;
-top:0;
-bottom: 0;
-margin: auto;
-cursor: pointer;
-opacity: 0.5;
-
-
-
-`
+  // const Arrow = styled.div
+`;
+// width: 50px;
+// height: 50px;
+// background-color: #fff7f7;
+// border-radius: 50%;
+// position: absolute;
+// top:0;
+// bottom: 0;
+// margin: auto;
+// cursor: pointer;
+// opacity: 0.5;
 
 const Wrapper = styled.div`
-height: 55vh;
-display: flex;
+  height: 55vh;
+  display: flex;
+`;
 
-`
+const Slide = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #${(props) => props.bg};
+`;
+const ImgContainer = styled.div`
+  flex: 1;
+`;
+const Image = styled.img``;
 
-const Slide= styled.div`
-display: flex;
-align-items: center;
-background-color:#${props=> props.bg} ;
-`
-const ImgContainer= styled.div`
-flex:1
-`
-const Image = styled.img`
-`
-
-const InfosContainer= styled.div`
-flex: 1;
-padding: 50px;
-`
+const InfosContainer = styled.div`
+  flex: 1;
+  padding: 50px;
+`;
 const Title = styled.h1`
-font-size: 70px;
-`
+  font-size: 70px;
+`;
 const Description = styled.p`
-margin: 50px 0px;
-font-size: 20px;
-font-weight: bold;
-letter-spacing: 3px;
-`
+  margin: 50px 0px;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 3px;
+`;
 const Button = styled.button`
-padding: 10px;
-font-size: 20px;
-background-color: transparent;
-cursor: pointer;
-
-`
-
+  padding: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  cursor: pointer;
+`;
 
 const Slider = () => {
-    return (
-        <Container>
-        <Arrow>
+  return (
+    <Container>
+      <Wrapper>
+        <Slide bg="fcf1ed">
+          <ImgContainer>
+            <Image
+              src="https://maboxacheveux.com/wp-content/uploads/2018/09/shampoing-solide-madinkarukera-cheveux-crepus.png"
+              alt="shpoo"
+            />
+          </ImgContainer>
+          <InfosContainer>
+            <Title>WINTER SALE</Title>
+            <Description>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe,
+              rem!
+            </Description>
+            <Button>SHOP NOW</Button>
+          </InfosContainer>
+        </Slide>
+        <Slide bg="fbf0f4">
+          <ImgContainer>
+            <Image
+              src="https://maboxacheveux.com/wp-content/uploads/2018/09/shampoing-solide-madinkarukera-cheveux-crepus.png"
+              alt="shpoo"
+            />
+          </ImgContainer>
+          <InfosContainer>
+            <Title>BRAND NEW</Title>
+            <Description>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
+              debitis!
+            </Description>
+            <Button>SHOP NOW</Button>
+          </InfosContainer>
+        </Slide>
+      </Wrapper>
+    </Container>
+  );
+};
 
-        </Arrow>
-<Wrapper>
-<Slide bg="fcf1ed"> 
-<ImgContainer>
-
-
-
-<Image src="https://maboxacheveux.com/wp-content/uploads/2018/09/shampoing-solide-madinkarukera-cheveux-crepus.png" alt="shpoo" />
-
-</ImgContainer>
-<InfosContainer>
-<Title>WINTER SALE</Title>
-<Description>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, rem!</Description>
-<Button>SHOP NOW</Button>
-</InfosContainer>
-</Slide>
-<Slide bg="fbf0f4"> 
-<ImgContainer>
-
-
-
-<Image src="https://maboxacheveux.com/wp-content/uploads/2018/09/shampoing-solide-madinkarukera-cheveux-crepus.png" alt="shpoo" />
-
-</ImgContainer>
-<InfosContainer>
-<Title>BRAND NEW</Title>
-<Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, debitis!</Description>
-<Button>SHOP NOW</Button>
-</InfosContainer>
-</Slide>
-</Wrapper>
-        <Arrow>
-        </Arrow>
-
-
-        </Container>
-
-
-        
-    )
-}
-
-export default Slider
+export default Slider;

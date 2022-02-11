@@ -15,6 +15,16 @@ a {
 	color: inherit;
 }
 
+.shopButton{
+	/* border: none; */
+	background-color: transparent;
+	cursor: pointer;
+	font-weight:550;
+
+
+}
+
+
 ul {
 	list-style-type: none;
 }

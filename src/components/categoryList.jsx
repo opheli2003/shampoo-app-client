@@ -34,10 +34,40 @@ const CategoryList = () => {
   flex: 1;
   padding: 20px;
   justify-content: space-between;
-  
+  align-items: center;
+  vertical-align: middle;
+flex-direction: column;
+  margin: 3px;
+  height: 70vh;
+  position: relative;
+  background-color: coral;
   `
 
+const Img = styled.img`
+/* width: 2%; */
+height: 60%;
+size: 150px;
+position: absolute;
+
+object-fit: cover;
+margin: auto;
+
+`
+
   const Title = styled.h1`
+  position: absolute;
+ 
+  /* width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0; */
+  /* size: 10px; */
+  color: gray;
+  /* margin: 20px; */
+  display: flex;
+  justify-content: center;
+ 
+ ;
   `
   
   return (
@@ -52,10 +82,13 @@ const CategoryList = () => {
           {category.map((cat) => {
             return (
               <Container key={cat._id}>
-              <img src={cat.image} alt={cat.name} />
-              <Title> 
-                <Link to={`/categories/cheveux-${cat.category}`}>{cat.category}</Link>
-                </Title>
+              <Img src={cat.image} alt={'cat.name'} />
+
+              { <Title>
+               
+               
+                <Link to={`/categories/cheveux-${cat.category}`}><button className = "shopButton">SEE MORE</button></Link>
+              </Title>  }
               </Container>
             );
           })}

@@ -26,6 +26,7 @@ import { useState } from "react";
 import AdminDashboard from "./pages/AdminDashboard"
 import BrandPage from "./pages/BrandPage"
 // import BrandPage from "./pages/BrandPage"
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function App() {
   const [cart, setCart] = useState([]);
