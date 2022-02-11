@@ -75,7 +75,7 @@ const CategorySecs = () => {
           return (
             
             <div key={product._id} className="row row-cols-1 row-cols-md-2 g-4">
-            <div className="col">   
+            <div className="row">   
             <div className ="card">
                   <img
                     className="card-img" width="200" height="200"

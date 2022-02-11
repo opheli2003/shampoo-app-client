@@ -67,7 +67,8 @@ const OneProdCatSecs = ({ handleAddedProduct }) => {
 
         <div>
           <button
-            className="prodcut-add-button"
+          className="btn btn-outline" data-bs-toggle="button"
+         
             onClick={() => handleAddedProduct(products)}
           >
             {" "}

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 // import useForm from "../../hooks/useForm"
 import apiHandler from "../../api/apiHandler.js";
+import Cart from "../../styles/Cart.css"
+
 
 const FormCart = ({ cart, remove, added }) => {
   console.log("FORMCART", cart);
@@ -25,11 +27,11 @@ const FormCart = ({ cart, remove, added }) => {
 
       {cart.length === 0 && <div> No items added yet </div>}
 
-      <div>
+      <div className="card">
         {cart.map((product) => (
           <div key={product.id} className="cart-product-list">
             <img
-              className="cart-product-image"
+              className="cart-image"
               src={product.image}
               alt={product.productName}
             />
@@ -39,10 +41,10 @@ const FormCart = ({ cart, remove, added }) => {
 
             <div className="cart-product-btn">
               <div className="cart-product-price-quantity">
-                {product.quantity} - ${product.price}
+                {product.quantity} 
               </div>
               <button
-                className="cart-product-add"
+              className="btn btn-outline" data-bs-toggle="button"
                 onClick={() => {
                   added(product);
                 }}
@@ -51,7 +53,7 @@ const FormCart = ({ cart, remove, added }) => {
                 +{" "}
               </button>
               <button
-                className="cart-product-remove"
+              className="btn btn-outline" data-bs-toggle="button"
                 onClick={() => {
                   remove(product);
                 }}

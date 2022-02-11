@@ -69,7 +69,6 @@ return(
         <div  >
           <label htmlFor="">Titre</label>
           <input
-          className="card"
             type="text"
             id="reviewTitle"
             name="reviewTitle"
@@ -80,6 +79,8 @@ return(
         <div>
           <label htmlFor="description">Commentaire:</label>
           <input
+                    className="card"
+
             type="text"
             id="review"
             name="review"
@@ -110,7 +111,7 @@ return(
           />
         </div>
           
-        <button>Soumettre mon avis</button>
+        <button className="btn btn-outline" data-bs-toggle="button">Soumettre mon avis</button>
 
     </form>
     
