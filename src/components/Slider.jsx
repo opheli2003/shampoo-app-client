@@ -63,7 +63,7 @@ const Slider = () => {
         <Slide bg="fcf1ed">
           <ImgContainer>
             <Image
-              src="https://maboxacheveux.com/wp-content/uploads/2018/09/shampoing-solide-madinkarukera-cheveux-crepus.png"
+              src="https://lessavonsdejoya.com/901-large_default/shampooing-solide-stimulant.jpg"
               alt="shpoo"
             />
           </ImgContainer>
@@ -79,7 +79,7 @@ const Slider = () => {
         <Slide bg="fbf0f4">
           <ImgContainer>
             <Image
-              src="https://maboxacheveux.com/wp-content/uploads/2018/09/shampoing-solide-madinkarukera-cheveux-crepus.png"
+              src="https://lessavonsdejoya.com/900-large_default/shampooing-solide-bleu.jpg"
               alt="shpoo"
             />
           </ImgContainer>

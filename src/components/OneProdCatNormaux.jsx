@@ -7,10 +7,9 @@ import { ErrorMess } from "./ErrorMess";
 import Review from "./reviews";
 import CategoryList from "./categoryList";
 
-
 // import CategoryList from "./categoryList";
 
-const OneProdCatnormaux = ({handleAddedProduct}) => {
+const OneProdCatnormaux = ({ handleAddedProduct }) => {
   // make a state variable for categories
   const [oneProduct, setOneProduct] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -47,31 +46,32 @@ const OneProdCatnormaux = ({handleAddedProduct}) => {
   }, [id]);
   console.log(products);
 
-  return(
+  return (
+    <div>
+      {products.image}
+      {products.price}
+      {products.productName}
+      {products.description}
+
       <div>
-{products.image}  
-{products.price} 
-{products.productName} 
-{products.description}
+        <button
+          className="prodcut-add-button"
+          onClick={() => handleAddedProduct(products)}
+        >
+          {" "}
+          Add to Cart{" "}
+        </button>
+      </div>
 
-<div>   
-<button className="prodcut-add-button" onClick={() => handleAddedProduct(products)}> Add to Cart </button>
+      <div>
+        <Review />
+      </div>
 
-</div>
-
-<div>   
-<Review/>
-</div>
-
-<div> 
-            
-<CategoryList />
-</div>
-
-  </div>
-            
-         
-  
-  )}
+      <div>
+        <CategoryList />
+      </div>
+    </div>
+  );
+};
 
 export default OneProdCatnormaux;
